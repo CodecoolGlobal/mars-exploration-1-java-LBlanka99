@@ -2,6 +2,7 @@ package com.codecool.marsexploration.data;
 
 public class Map {
     private char[][] map;
+
     private int width;
 
     public Map(int width) {
@@ -10,6 +11,9 @@ public class Map {
         fillEmptySpace();
     }
 
+    public int getWidth() {
+        return width;
+    }
     public char[][] getMap() {
         return map;
     }
@@ -19,8 +23,8 @@ public class Map {
     }
 
     public void setCoordinate(Coordinate coordinate, Symbol symbol){
-        if(coordinate.x() > width && coordinate.y() > width){
-            System.out.println("Ez igy szar");
+        if(coordinate.x() >= width || coordinate.y() >= width){
+            System.out.println("Not quite good mate");
             return;
         }
         if(map[coordinate.x()][coordinate.y()] == ' '){
