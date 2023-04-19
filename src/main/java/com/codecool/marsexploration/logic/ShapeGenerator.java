@@ -26,16 +26,8 @@ public class ShapeGenerator {
         int placedCounter = 1;
 
         while (placedCounter < amount){
-            List<Coordinate> emptyNeighbours = new ArrayList<>();
-            for(int i = prevRandomX - 1; i <= prevRandomX + 1; i++){
-                for(int j = prevRandomY - 1; j <= prevRandomY + 1; j++){
-                    if(!(i < 0 || j < 0 || i >= amount || j >= amount)){
-                        if(area[i][j] == 0){
-                            emptyNeighbours.add(new Coordinate(i, j));
-                        }
-                    }
-                }
-            }
+            List<Coordinate> emptyNeighbours = getEmptyNeighbours(amount, area, prevRandomX, prevRandomY);
+
             if(!emptyNeighbours.isEmpty()){
                 int randomIndex = random.nextInt(emptyNeighbours.size());
                 prevRandomX = emptyNeighbours.get(randomIndex).x();
@@ -51,5 +43,19 @@ public class ShapeGenerator {
             }
         }
         return results;
+    }
+
+    private static List<Coordinate> getEmptyNeighbours(int amount, char[][] area, int prevRandomX, int prevRandomY) {
+        List<Coordinate> emptyNeighbours = new ArrayList<>();
+        for(int i = prevRandomX - 1; i <= prevRandomX + 1; i++){
+            for(int j = prevRandomY - 1; j <= prevRandomY + 1; j++){
+                if(!(i < 0 || j < 0 || i >= amount || j >= amount)){
+                    if(area[i][j] == 0){
+                        emptyNeighbours.add(new Coordinate(i, j));
+                    }
+                }
+            }
+        }
+        return emptyNeighbours;
     }
 }
