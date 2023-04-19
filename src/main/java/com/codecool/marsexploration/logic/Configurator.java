@@ -1,7 +1,6 @@
 package com.codecool.marsexploration.logic;
 
 import java.util.List;
-import java.util.Scanner;
 
 import com.codecool.marsexploration.data.Coordinate;
 import com.codecool.marsexploration.data.Map;
@@ -31,8 +30,8 @@ public class Configurator {
         SinglePlacer mineralPlacer = new SinglePlacer(Symbol.MINERAL, mineralAmount, map);
         place2D(mountainSizes, Symbol.MOUNTAIN);
         place2D(pitSizes, Symbol.PIT);
-        waterPlacer.placeSymbols();
-        mineralPlacer.placeSymbols();
+        waterPlacer.placeSymbolsRandomly();
+        mineralPlacer.placeSymbolsRandomly();
         return map;
     }
 

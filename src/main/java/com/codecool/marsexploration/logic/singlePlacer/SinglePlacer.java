@@ -27,14 +27,18 @@ public class SinglePlacer {
         }
     }
 
-    public void placeSymbols() {
-        int placedCounter = 0;
-
+    public void placeSymbolsRandomly() {
         List<Coordinate> possiblePlaces = getPlaceableCoordinates();
+
         if (possiblePlaces.size() < amount) {
             amount = possiblePlaces.size();
         }
 
+        placeSymbolsRandomly(possiblePlaces);
+    }
+
+    private void placeSymbolsRandomly(List<Coordinate> possiblePlaces) {
+        int placedCounter = 0;
         while (placedCounter < amount) {
             int randomIndex = random.nextInt(possiblePlaces.size());
             Coordinate randomCoordinate = possiblePlaces.get(randomIndex);
