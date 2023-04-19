@@ -9,23 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SinglePlacer {
+public abstract class SinglePlacer {
+    protected Symbol toPlace;
+    private int amount;
+    private Map map;
+    protected Symbol placeNear;
 
 
-
-
-    public SinglePlacer() {
-
+    public SinglePlacer(int amount, Map map) {
+        this.amount = amount;
+        this.map = map;
     }
 
-    public void placeSymbolsRandomly(Symbol toPlace, int amount, Map map) {
-        Symbol placeNear;
-
-        switch (toPlace) {
-            case WATER -> placeNear = Symbol.PIT;
-            case MINERAL -> placeNear = Symbol.MOUNTAIN;
-            default -> placeNear = Symbol.WATER;
-        }
+    public void placeSymbolsRandomly() {
         List<Coordinate> possiblePlaces = getPlaceableCoordinates(map, placeNear);
 
         if (possiblePlaces.size() < amount) {

@@ -5,7 +5,9 @@ import java.util.List;
 import com.codecool.marsexploration.data.Coordinate;
 import com.codecool.marsexploration.data.Map;
 import com.codecool.marsexploration.data.Symbol;
+import com.codecool.marsexploration.logic.singlePlacer.MineralPlacer;
 import com.codecool.marsexploration.logic.singlePlacer.SinglePlacer;
+import com.codecool.marsexploration.logic.singlePlacer.WaterPlacer;
 
 public class Configurator {
 
@@ -24,11 +26,12 @@ public class Configurator {
     }
 
     public Map drawMap(List<Integer> mountainSizes, List<Integer> pitSizes, int waterAmount, int mineralAmount) {
-        SinglePlacer singlePlacer = new SinglePlacer();
+        WaterPlacer waterPlacer = new WaterPlacer(waterAmount, map);
+        MineralPlacer mineralPlacer = new MineralPlacer(mineralAmount, map);
         place2D(mountainSizes, Symbol.MOUNTAIN);
         place2D(pitSizes, Symbol.PIT);
-        singlePlacer.placeSymbolsRandomly(Symbol.MINERAL, mineralAmount, map);
-        singlePlacer.placeSymbolsRandomly(Symbol.WATER, waterAmount, map);
+        mineralPlacer.placeSymbolsRandomly();
+        waterPlacer.placeSymbolsRandomly();
         return map;
     }
 
