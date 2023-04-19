@@ -11,32 +11,31 @@ import java.util.Random;
 
 public class SinglePlacer {
 
-    private Symbol toPlace;
-    private Symbol placeNear;
-    private int amount;
-    private Map map;
 
-    public SinglePlacer(Symbol toPlace, int amount, Map map) {
-        this.toPlace = toPlace;
-        this.amount = amount;
-        this.map = map;
+
+
+    public SinglePlacer() {
+
+    }
+
+    public void placeSymbolsRandomly(Symbol toPlace, int amount, Map map) {
+        Symbol placeNear;
+
         switch (toPlace) {
             case WATER -> placeNear = Symbol.PIT;
             case MINERAL -> placeNear = Symbol.MOUNTAIN;
+            default -> placeNear = Symbol.WATER;
         }
-    }
-
-    public void placeSymbolsRandomly() {
-        List<Coordinate> possiblePlaces = getPlaceableCoordinates();
+        List<Coordinate> possiblePlaces = getPlaceableCoordinates(map, placeNear);
 
         if (possiblePlaces.size() < amount) {
             amount = possiblePlaces.size();
         }
 
-        placeSymbolsRandomly(possiblePlaces);
+        placeSymbolsRandomly(possiblePlaces, amount, toPlace, map);
     }
 
-    private void placeSymbolsRandomly(List<Coordinate> possiblePlaces) {
+    private void placeSymbolsRandomly(List<Coordinate> possiblePlaces, int amount, Symbol toPlace, Map map) {
         int placedCounter = 0;
         while (placedCounter < amount) {
             Coordinate randomCoordinate = RandomPicker.pickRandomElement(possiblePlaces);
@@ -46,7 +45,7 @@ public class SinglePlacer {
         }
     }
 
-    private boolean isValidPlacement(Coordinate coordinate) {
+    private boolean isValidPlacement(Coordinate coordinate, Map map, Symbol placeNear) {
         if (map.getMap()[coordinate.x()][coordinate.y()] != ' ') {
             return false;
         }
@@ -63,11 +62,11 @@ public class SinglePlacer {
         return false;
     }
 
-    private List<Coordinate> getPlaceableCoordinates () {
+    private List<Coordinate> getPlaceableCoordinates (Map map, Symbol placeNear) {
         List<Coordinate> possibleCoordinates = new ArrayList<>();
         for(int i = 0; i < map.getWidth(); i++){
             for(int j = 0; j < map.getWidth(); j++){
-                if(isValidPlacement(new Coordinate(i, j))){
+                if(isValidPlacement(new Coordinate(i, j), map, placeNear)){
                     possibleCoordinates.add(new Coordinate(i, j));
                 }
             }

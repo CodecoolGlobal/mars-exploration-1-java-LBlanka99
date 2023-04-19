@@ -24,12 +24,11 @@ public class Configurator {
     }
 
     public Map drawMap(List<Integer> mountainSizes, List<Integer> pitSizes, int waterAmount, int mineralAmount) {
-        SinglePlacer waterPlacer = new SinglePlacer(Symbol.WATER, waterAmount, map);
-        SinglePlacer mineralPlacer = new SinglePlacer(Symbol.MINERAL, mineralAmount, map);
+        SinglePlacer singlePlacer = new SinglePlacer();
         place2D(mountainSizes, Symbol.MOUNTAIN);
         place2D(pitSizes, Symbol.PIT);
-        waterPlacer.placeSymbolsRandomly();
-        mineralPlacer.placeSymbolsRandomly();
+        singlePlacer.placeSymbolsRandomly(Symbol.MINERAL, mineralAmount, map);
+        singlePlacer.placeSymbolsRandomly(Symbol.WATER, waterAmount, map);
         return map;
     }
 
