@@ -4,18 +4,16 @@ package com.codecool.marsexploration.logic;
 import com.codecool.marsexploration.data.Coordinate;
 import com.codecool.marsexploration.data.Map;
 import com.codecool.marsexploration.data.Symbol;
+import static com.codecool.marsexploration.util.RandomPicker.pickRandomElement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class ShapePlacer {
     private Map map;
-    private Random random;
 
     public ShapePlacer(Map map) {
         this.map = map;
-        random = new Random();
     }
 
     public boolean placeShape(List<Coordinate> coordinates, Symbol symbol) {
@@ -44,10 +42,8 @@ public class ShapePlacer {
             return false;
         }
 
-        int randomIndex = random.nextInt(differenceVectors.size());
-        int diffX = differenceVectors.get(randomIndex).x();
-        int diffY = differenceVectors.get(randomIndex).y();
-        List<Coordinate> finalCoordinates = shiftCoordinates(coordinates, diffX, diffY);
+        Coordinate randomVector = pickRandomElement(differenceVectors);
+        List<Coordinate> finalCoordinates = shiftCoordinates(coordinates, randomVector.x(), randomVector.y());
 
         for (Coordinate coordinate: finalCoordinates) {
             map.setCoordinate(coordinate, symbol);

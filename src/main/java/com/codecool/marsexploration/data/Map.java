@@ -18,10 +18,6 @@ public class Map {
         return map;
     }
 
-    public void setMap(char[][] map) {
-        this.map = map;
-    }
-
     public void setCoordinate(Coordinate coordinate, Symbol symbol){
         if(coordinate.x() >= width || coordinate.y() >= width){
             System.out.println("Not quite good mate");

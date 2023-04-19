@@ -3,6 +3,7 @@ package com.codecool.marsexploration.logic.singlePlacer;
 import com.codecool.marsexploration.data.Coordinate;
 import com.codecool.marsexploration.data.Symbol;
 import com.codecool.marsexploration.data.Map;
+import com.codecool.marsexploration.util.RandomPicker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +15,10 @@ public class SinglePlacer {
     private Symbol placeNear;
     private int amount;
     private Map map;
-    private Random random;
 
     public SinglePlacer(Symbol toPlace, int amount, Map map) {
         this.toPlace = toPlace;
         this.amount = amount;
-        random = new Random();
         this.map = map;
         switch (toPlace) {
             case WATER -> placeNear = Symbol.PIT;
@@ -27,19 +26,22 @@ public class SinglePlacer {
         }
     }
 
-    public void placeSymbols() {
-        int placedCounter = 0;
-
+    public void placeSymbolsRandomly() {
         List<Coordinate> possiblePlaces = getPlaceableCoordinates();
+
         if (possiblePlaces.size() < amount) {
             amount = possiblePlaces.size();
         }
 
+        placeSymbolsRandomly(possiblePlaces);
+    }
+
+    private void placeSymbolsRandomly(List<Coordinate> possiblePlaces) {
+        int placedCounter = 0;
         while (placedCounter < amount) {
-            int randomIndex = random.nextInt(possiblePlaces.size());
-            Coordinate randomCoordinate = possiblePlaces.get(randomIndex);
+            Coordinate randomCoordinate = RandomPicker.pickRandomElement(possiblePlaces);
             map.setCoordinate(randomCoordinate, toPlace);
-            possiblePlaces.remove(randomIndex);
+            possiblePlaces.remove(randomCoordinate);
             placedCounter++;
         }
     }

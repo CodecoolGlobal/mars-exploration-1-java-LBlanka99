@@ -1,7 +1,6 @@
 package com.codecool.marsexploration.logic;
 
 import java.util.List;
-import java.util.Scanner;
 
 import com.codecool.marsexploration.data.Coordinate;
 import com.codecool.marsexploration.data.Map;
@@ -12,15 +11,13 @@ public class Configurator {
 
 
     private int width;
-    private String filename;
     Map map;
     ShapeGenerator shapeGenerator;
     ShapePlacer shapePlacer;
     private static final int MAX_TRIES = 10;
 
-    public Configurator(int width, String filename) {
+    public Configurator(int width) {
         this.width = width;
-        this.filename = filename;
         map = new Map(width);
         shapeGenerator = new ShapeGenerator();
         shapePlacer = new ShapePlacer(map);
@@ -31,8 +28,8 @@ public class Configurator {
         SinglePlacer mineralPlacer = new SinglePlacer(Symbol.MINERAL, mineralAmount, map);
         place2D(mountainSizes, Symbol.MOUNTAIN);
         place2D(pitSizes, Symbol.PIT);
-        waterPlacer.placeSymbols();
-        mineralPlacer.placeSymbols();
+        waterPlacer.placeSymbolsRandomly();
+        mineralPlacer.placeSymbolsRandomly();
         return map;
     }
 
