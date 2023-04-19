@@ -7,8 +7,8 @@ import com.codecool.marsexploration.data.Map;
 
 public class FileWriter {
 
-    public void Writer (Map map, String filePath) {
-        try (BufferedWriter writer = new BufferedWriter(new java.io.FileWriter(filePath + "test-1.map"))) {
+    public void Writer (Map map, String filePath, String fileName) {
+        try (BufferedWriter writer = new BufferedWriter(new java.io.FileWriter(filePath + fileName + ".map"))) {
             writer.write(buildString(map));
         } catch (IOException e) {
             e.printStackTrace();
