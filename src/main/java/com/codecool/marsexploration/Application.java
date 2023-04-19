@@ -12,7 +12,7 @@ public class Application {
     public static void main(String[] args) {
 
 
-        Configurator configurator = new Configurator(35, FILE_PATH + "test-1.map");
+        Configurator configurator = new Configurator(35);
         Map map = configurator.drawMap(List.of(10, 20, 30), List.of(5, 15), 8, 12);
 
         StringBuilder content = new StringBuilder();

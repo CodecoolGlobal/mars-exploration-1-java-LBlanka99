@@ -11,15 +11,13 @@ public class Configurator {
 
 
     private int width;
-    private String filename;
     Map map;
     ShapeGenerator shapeGenerator;
     ShapePlacer shapePlacer;
     private static final int MAX_TRIES = 10;
 
-    public Configurator(int width, String filename) {
+    public Configurator(int width) {
         this.width = width;
-        this.filename = filename;
         map = new Map(width);
         shapeGenerator = new ShapeGenerator();
         shapePlacer = new ShapePlacer(map);
