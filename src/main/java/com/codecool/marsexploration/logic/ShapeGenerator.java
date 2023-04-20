@@ -2,10 +2,9 @@ package com.codecool.marsexploration.logic;
 
 import com.codecool.marsexploration.data.Coordinate;
 
-
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.List;
+import java.util.Random;
 
 import static com.codecool.marsexploration.util.RandomPicker.pickRandomElement;
 

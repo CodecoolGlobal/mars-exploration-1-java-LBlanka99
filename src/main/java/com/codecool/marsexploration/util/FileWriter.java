@@ -1,8 +1,9 @@
 package com.codecool.marsexploration.util;
 
+import com.codecool.marsexploration.data.Map;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
-import com.codecool.marsexploration.data.Map;
 
 
 public class FileWriter {

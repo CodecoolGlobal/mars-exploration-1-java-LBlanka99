@@ -4,10 +4,11 @@ package com.codecool.marsexploration.logic;
 import com.codecool.marsexploration.data.Coordinate;
 import com.codecool.marsexploration.data.Map;
 import com.codecool.marsexploration.data.Symbol;
-import static com.codecool.marsexploration.util.RandomPicker.pickRandomElement;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.codecool.marsexploration.util.RandomPicker.pickRandomElement;
 
 public class ShapePlacer {
     private Map map;

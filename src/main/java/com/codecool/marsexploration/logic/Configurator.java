@@ -1,13 +1,12 @@
 package com.codecool.marsexploration.logic;
 
-import java.util.List;
-
 import com.codecool.marsexploration.data.Coordinate;
 import com.codecool.marsexploration.data.Map;
 import com.codecool.marsexploration.data.Symbol;
 import com.codecool.marsexploration.logic.singlePlacer.MineralPlacer;
-import com.codecool.marsexploration.logic.singlePlacer.SinglePlacer;
 import com.codecool.marsexploration.logic.singlePlacer.WaterPlacer;
+
+import java.util.List;
 
 public class Configurator {
 

@@ -1,13 +1,12 @@
 package com.codecool.marsexploration.logic.singlePlacer;
 
 import com.codecool.marsexploration.data.Coordinate;
-import com.codecool.marsexploration.data.Symbol;
 import com.codecool.marsexploration.data.Map;
+import com.codecool.marsexploration.data.Symbol;
 import com.codecool.marsexploration.util.RandomPicker;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public abstract class SinglePlacer {
     protected Symbol toPlace;
@@ -41,7 +40,7 @@ public abstract class SinglePlacer {
         }
     }
 
-    private boolean isValidPlacement(Coordinate coordinate, Map map, Symbol placeNear) {
+    public boolean isValidPlacement(Coordinate coordinate, Map map, Symbol placeNear) {
         if (map.getMap()[coordinate.x()][coordinate.y()] != ' ') {
             return false;
         }
