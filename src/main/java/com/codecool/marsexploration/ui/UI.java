@@ -5,6 +5,7 @@ import com.codecool.marsexploration.logic.Configurator;
 import com.codecool.marsexploration.util.FileWriter;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,8 +28,7 @@ public class UI {
             mountainSizes.add(getIntInput("Give me the area of mountain range number "+i));
         }
 
-        System.out.println("How many pits do you want to place?");
-        int pitsAmount = scanner.nextInt();
+        int pitsAmount = getIntInput("How many pits do you want to place?");
         List<Integer> pitSizes = new ArrayList<>();
         for(int i = 1; i <= pitsAmount; i++){
             pitSizes.add(getIntInput("Give me the area of pit number "+i));
@@ -45,7 +45,19 @@ public class UI {
     }
 
     private int getIntInput(String message) {
-        System.out.println(message);
-        return scanner.nextInt();
+        boolean isValidInput = false;
+        int number = 0;
+
+        while(!isValidInput) {
+            System.out.println(message);
+            try {
+                number = Integer.valueOf(scanner.nextLine());
+                isValidInput = true;
+            } catch(NumberFormatException e) {
+                System.out.println("This is an invalid input. You should give me an integer!");
+            }
+        }
+
+        return number;
     }
 }
