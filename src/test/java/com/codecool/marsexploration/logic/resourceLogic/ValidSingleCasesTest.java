@@ -32,6 +32,7 @@ class ValidSingleCasesTest {
         map.setCoordinate(new Coordinate(5, 5), Symbol.PIT);
         map.setCoordinate(new Coordinate(4, 5), Symbol.MINERAL);
         boolean result = validSingleCases.isValidPlacement(new Coordinate(4, 5), map, Symbol.PIT);
+        assertFalse(result);
     }
 
 }
