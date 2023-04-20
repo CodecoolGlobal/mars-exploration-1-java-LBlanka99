@@ -24,9 +24,8 @@ public class Map {
             System.out.println("You wanted to set coordinates out of the map!");
             return;
         }
-        if (map[coordinate.x()][coordinate.y()] == ' ') {
-            map[coordinate.x()][coordinate.y()] = symbol.getSymbol();
-        }
+
+        map[coordinate.x()][coordinate.y()] = symbol.getSymbol();
     }
 
     private void fillEmptySpace() {
