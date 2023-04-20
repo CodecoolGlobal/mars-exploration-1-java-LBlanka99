@@ -20,8 +20,8 @@ public class Map {
     }
 
     public void setCoordinate(Coordinate coordinate, Symbol symbol) {
-        if (coordinate.x() >= width || coordinate.y() >= width) {
-            System.out.println("Not quite good mate");
+        if (coordinate.x() < 0 || coordinate.y() < 0 || coordinate.x() >= width || coordinate.y() >= width) {
+            System.out.println("You wanted to set coordinates out of the map!");
             return;
         }
         if (map[coordinate.x()][coordinate.y()] == ' ') {
