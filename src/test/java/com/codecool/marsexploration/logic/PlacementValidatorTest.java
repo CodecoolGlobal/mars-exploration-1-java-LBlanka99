@@ -17,7 +17,6 @@ class PlacementValidatorTest {
     @Test
     void testValidCase(){
         boolean result = PlacementValidator.validatePlacement(List.of(new Coordinate(5,5), new Coordinate(10, 10), new Coordinate(3,3)), map);
-        boolean result1 = PlacementValidator.validatePlacement(List.of(new Coordinate(0,1), new Coordinate(30, 10), new Coordinate(5,42)), map);
         assertTrue(result);
     }
 
