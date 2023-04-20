@@ -50,7 +50,7 @@ public class UI {
         while (!isValidInput) {
             System.out.println(message);
             try {
-                number = Integer.valueOf(scanner.nextLine());
+                number = Integer.parseInt(scanner.nextLine());
                 isValidInput = true;
             } catch (NumberFormatException e) {
                 System.out.println("This is an invalid input. You should give me an integer!");
