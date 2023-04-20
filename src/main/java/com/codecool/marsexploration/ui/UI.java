@@ -5,15 +5,14 @@ import com.codecool.marsexploration.logic.Configurator;
 import com.codecool.marsexploration.util.FileWriter;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class UI {
-    private Scanner scanner;
     private static final int MAP_WIDTH = 32;
+    private final Scanner scanner;
 
-    public UI (){
+    public UI() {
         scanner = new Scanner(System.in);
     }
 
@@ -24,14 +23,14 @@ public class UI {
         System.out.println("Hello! Welcome to Mars exploration!");
         int mountainRangeAmount = getIntInput("How many mountain ranges do you want to place?");
         List<Integer> mountainSizes = new ArrayList<>();
-        for(int i = 1; i <= mountainRangeAmount; i++){
-            mountainSizes.add(getIntInput("Give me the area of mountain range number "+i));
+        for (int i = 1; i <= mountainRangeAmount; i++) {
+            mountainSizes.add(getIntInput("Give me the area of mountain range number " + i));
         }
 
         int pitsAmount = getIntInput("How many pits do you want to place?");
         List<Integer> pitSizes = new ArrayList<>();
-        for(int i = 1; i <= pitsAmount; i++){
-            pitSizes.add(getIntInput("Give me the area of pit number "+i));
+        for (int i = 1; i <= pitsAmount; i++) {
+            pitSizes.add(getIntInput("Give me the area of pit number " + i));
         }
 
         int waterAmount = getIntInput("How many waters do you want to place?");
@@ -48,12 +47,12 @@ public class UI {
         boolean isValidInput = false;
         int number = 0;
 
-        while(!isValidInput) {
+        while (!isValidInput) {
             System.out.println(message);
             try {
-                number = Integer.valueOf(scanner.nextLine());
+                number = Integer.parseInt(scanner.nextLine());
                 isValidInput = true;
-            } catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("This is an invalid input. You should give me an integer!");
             }
         }

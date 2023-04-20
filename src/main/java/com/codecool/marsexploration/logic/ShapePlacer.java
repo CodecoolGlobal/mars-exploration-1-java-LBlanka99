@@ -11,7 +11,8 @@ import java.util.List;
 import static com.codecool.marsexploration.util.RandomPicker.pickRandomElement;
 
 public class ShapePlacer {
-    private Map map;
+    private final Map map;
+    PlacementValidator placementValidator = new PlacementValidator();
 
     public ShapePlacer(Map map) {
         this.map = map;
@@ -28,7 +29,7 @@ public class ShapePlacer {
 
         Coordinate randomVector = pickRandomElement(differenceVectors);
         List<Coordinate> finalCoordinates = shiftCoordinates(coordinates, randomVector.x(), randomVector.y());
-        for (Coordinate coordinate: finalCoordinates) {
+        for (Coordinate coordinate : finalCoordinates) {
             map.setCoordinate(coordinate, symbol);
         }
 
@@ -54,8 +55,8 @@ public class ShapePlacer {
         List<Coordinate> differenceVectors = new ArrayList<>();
         for (int i = -minX; i < map.getWidth() - minX; i++) {
             for (int j = -minY; j < map.getWidth() - minY; j++) {
-                if (PlacementValidator.validatePlacement(shiftCoordinates(coordinates, i, j), map)) {
-                    differenceVectors.add(new Coordinate(i,j));
+                if (placementValidator.validatePlacement(shiftCoordinates(coordinates, i, j), map)) {
+                    differenceVectors.add(new Coordinate(i, j));
                 }
             }
         }

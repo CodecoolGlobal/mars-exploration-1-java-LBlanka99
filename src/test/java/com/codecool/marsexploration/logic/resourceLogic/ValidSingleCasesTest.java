@@ -5,7 +5,8 @@ import com.codecool.marsexploration.data.Map;
 import com.codecool.marsexploration.data.Symbol;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ValidSingleCasesTest {
 
@@ -21,7 +22,7 @@ class ValidSingleCasesTest {
 
     @Test
     void testValidCase() {
-        map.setCoordinate(new Coordinate(5,5), Symbol.PIT);
+        map.setCoordinate(new Coordinate(5, 5), Symbol.PIT);
         boolean result = validSingleCases.isValidPlacement(new Coordinate(4, 5), map, Symbol.PIT);
         assertTrue(result);
     }
@@ -31,6 +32,7 @@ class ValidSingleCasesTest {
         map.setCoordinate(new Coordinate(5, 5), Symbol.PIT);
         map.setCoordinate(new Coordinate(4, 5), Symbol.MINERAL);
         boolean result = validSingleCases.isValidPlacement(new Coordinate(4, 5), map, Symbol.PIT);
+        assertFalse(result);
     }
 
 }
