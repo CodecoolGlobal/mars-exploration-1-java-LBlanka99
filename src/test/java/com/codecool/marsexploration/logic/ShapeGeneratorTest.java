@@ -10,9 +10,9 @@ class ShapeGeneratorTest {
 
   @Test
     public void testGenerator(){
-     List<Coordinate> stuff =  shapeGenerator.generateShape(10);
-     for(Coordinate what : stuff){
-         System.out.println(what);
-     }
+      int amount = 10;
+     List<Coordinate> shapeCoordinates =  shapeGenerator.generateShape(amount);
+     assertEquals(shapeCoordinates.size(), amount);
+
   }
 }

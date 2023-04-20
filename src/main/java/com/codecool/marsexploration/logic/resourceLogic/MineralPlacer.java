@@ -1,4 +1,4 @@
-package com.codecool.marsexploration.logic.singlePlacer;
+package com.codecool.marsexploration.logic.resourceLogic;
 
 import com.codecool.marsexploration.data.Map;
 import com.codecool.marsexploration.data.Symbol;
