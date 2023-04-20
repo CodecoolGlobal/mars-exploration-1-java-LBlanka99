@@ -25,6 +25,7 @@ public class Configurator {
         ShapePlacer shapePlacer = new ShapePlacer(map);
         WaterPlacer waterPlacer = new WaterPlacer(waterAmount, map);
         MineralPlacer mineralPlacer = new MineralPlacer(mineralAmount, map);
+
         place2D(mountainSizes, Symbol.MOUNTAIN, shapePlacer);
         place2D(pitSizes, Symbol.PIT, shapePlacer);
         mineralPlacer.placeSymbolsRandomlyToThePossiblePlaces();
