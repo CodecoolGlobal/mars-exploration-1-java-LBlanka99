@@ -10,9 +10,9 @@ import java.util.List;
 
 public class Configurator {
 
-    private int width;
-    ShapeGenerator shapeGenerator;
     private static final int MAX_TRIES = 10;
+    ShapeGenerator shapeGenerator;
+    private final int width;
 
     public Configurator(int width) {
         this.width = width;

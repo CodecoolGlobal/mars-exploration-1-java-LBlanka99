@@ -5,16 +5,14 @@ import com.codecool.marsexploration.data.Map;
 import com.codecool.marsexploration.data.Symbol;
 import com.codecool.marsexploration.util.RandomPicker;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class SinglePlacer {
     protected Symbol toPlace;
-    private int amount;
-    private Map map;
     protected Symbol placeNear;
-
-    private ValidSingleCases singleValidator;
+    private int amount;
+    private final Map map;
+    private final ValidSingleCases singleValidator;
 
 
     public SinglePlacer(int amount, Map map) {
@@ -42,7 +40,6 @@ public abstract class SinglePlacer {
             placedCounter++;
         }
     }
-
 
 
 }

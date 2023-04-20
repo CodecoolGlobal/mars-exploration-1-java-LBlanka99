@@ -26,11 +26,11 @@ public class ValidSingleCases {
         return false;
     }
 
-    public List<Coordinate> getPlaceableCoordinates (Map map, Symbol placeNear) {
+    public List<Coordinate> getPlaceableCoordinates(Map map, Symbol placeNear) {
         List<Coordinate> possibleCoordinates = new ArrayList<>();
-        for(int i = 0; i < map.getWidth(); i++){
-            for(int j = 0; j < map.getWidth(); j++){
-                if(isValidPlacement(new Coordinate(i, j), map, placeNear)){
+        for (int i = 0; i < map.getWidth(); i++) {
+            for (int j = 0; j < map.getWidth(); j++) {
+                if (isValidPlacement(new Coordinate(i, j), map, placeNear)) {
                     possibleCoordinates.add(new Coordinate(i, j));
                 }
             }

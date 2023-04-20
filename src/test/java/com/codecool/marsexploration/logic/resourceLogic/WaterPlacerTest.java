@@ -12,11 +12,11 @@ class WaterPlacerTest {
     WaterPlacer waterPlacer = new WaterPlacer(1, map);
 
     @Test
-    void testWithEmptyMap(){
+    void testWithEmptyMap() {
         waterPlacer.placeSymbolsRandomlyToThePossiblePlaces();
         char[][] expected = new char[3][3];
         for (int i = 0; i < expected.length; i++) {
-            for(int j = 0; j < expected.length; j++){
+            for (int j = 0; j < expected.length; j++) {
                 expected[i][j] = ' ';
             }
         }
@@ -24,13 +24,13 @@ class WaterPlacerTest {
     }
 
     @Test
-    void testWhenHaveMountains(){
-        map.setCoordinate(new Coordinate(0,0), Symbol.PIT);
+    void testWhenHaveMountains() {
+        map.setCoordinate(new Coordinate(0, 0), Symbol.PIT);
         map.setCoordinate(new Coordinate(0, 1), Symbol.MOUNTAIN);
         map.setCoordinate(new Coordinate(1, 0), Symbol.MOUNTAIN);
         waterPlacer.placeSymbolsRandomlyToThePossiblePlaces();
 
-        assertTrue(map.getMap()[1][1] == Symbol.WATER.getSymbol());
+        assertEquals(map.getMap()[1][1], Symbol.WATER.getSymbol());
 
     }
 }
