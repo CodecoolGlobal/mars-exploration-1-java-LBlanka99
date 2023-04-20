@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ValidSingleCases {
+class ValidSingleCasesTest {
 
     Map map = new Map(32);
     ValidSingleCases validSingleCases = new ValidSingleCases();
