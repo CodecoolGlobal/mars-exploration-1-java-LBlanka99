@@ -8,7 +8,7 @@ public class Map {
     public Map(int width) {
         this.map = new char[width][width];
         this.width = width;
-        fillEmptySpace();
+        fillMapWithEmptySpaces();
     }
 
     public int getWidth() {
@@ -28,7 +28,7 @@ public class Map {
         map[coordinate.x()][coordinate.y()] = symbol.getSymbol();
     }
 
-    private void fillEmptySpace() {
+    private void fillMapWithEmptySpaces() {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < width; j++) {
                 map[i][j] = ' ';
