@@ -107,7 +107,7 @@ Follow these steps to set up your JAVA application:
    ```
 4. Run the application:
    ```sh
-   java -jar target/YourApp.jar
+   java -jar target\classes\com\codecool\marsexploration\Application.class
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
