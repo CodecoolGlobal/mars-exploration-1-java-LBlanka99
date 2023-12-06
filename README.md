@@ -76,6 +76,13 @@ This project was about making an application that creates a random map according
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Technologies and Tools
+-Java
+
+### Additional
+- Docker
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
